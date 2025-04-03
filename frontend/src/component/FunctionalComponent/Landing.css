@@ -1,0 +1,63 @@
+/* Landing Page Full-Screen Layout */
+.landing-container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #b783e8, #d8b4fe);
+}
+
+/* Login Box */
+.landing-box {
+    width: 350px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Heading */
+.landing-box h2 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.landing-button {
+    width: 100%;
+    padding: 12px;
+    background: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.landing-button:hover {
+    background: #f6f6f7;
+    color:#6a0dad
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .landing-box {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-box {
+        width: 90%;
+        padding: 30px;
+    }
+}

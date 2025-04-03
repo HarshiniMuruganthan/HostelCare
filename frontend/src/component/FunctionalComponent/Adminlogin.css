@@ -1,0 +1,87 @@
+/* Full-Screen Centered Layout */
+.admin-login-container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #b783e8, #d8b4fe); /* Matching student login theme */
+}
+
+/* Login Box */
+.admin-login-box {
+    width: 350px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Heading */
+.admin-login-box h2 {
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    margin-bottom:2px;
+}
+
+/* Login Button */
+.admin-login-button {
+    width: 100%;
+    padding: 12px;
+    background: #6a0dad; /* Matching student login theme */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-top: 15px;
+}
+
+.admin-login-button:hover {
+    background: #5a0cb5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .admin-login-box {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-login-box {
+        width: 90%;
+        padding: 30px;
+    }
+}

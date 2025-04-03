@@ -1,0 +1,376 @@
+/* Full-screen layout */
+.login-page {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    align-items: center;  /* Center the login box vertically */
+    justify-content: center; /* Center the login box horizontally */
+}
+
+/* Animated Purple Background */
+.left-side {
+    width: 0%;
+    height: 100vh;
+    background: linear-gradient(to right, #b783e8, #d8b4fe);
+    animation: expand-purple 2s forwards ease-in-out;
+}
+
+@keyframes expand-purple {
+    0% { width: 0%; }
+    100% { width: 50%; }
+}
+
+/* Right Side - Login Form */
+.right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+/* Transparent Login Box */
+.login-box {
+    width: 300px; /* Increased width for a bigger box */
+    padding: 40px; /* More padding for better spacing */
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Increased gap between elements */
+    align-items: center; /* Centers content including button */
+}
+
+/* Center only the "HostelCare" heading */
+.login-box h2 {
+    font-size: 28px; /* Slightly larger text */
+    color: #333;
+    text-align: center; /* Centers the text */
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Input Field Styling */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 12px; /* Bigger input fields */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Centering the button */
+button {
+    width: 80%; /* Reduced width for centering effect */
+    padding: 12px; /* Bigger button */
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px; /* Bigger text on button */
+    display: block;
+    text-align: center;
+    margin: 0 auto; /* Centers the button */
+}
+
+button:hover {
+    background: #0056b3;
+}
+.home-page {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px; /* Increased padding for better spacing */
+    background: #c89ae7;
+    color: white;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 20px; /* Adds space from the left side */
+}
+
+/* Right Section of Navbar */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 20px; /* Adds space from the right side */
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Icon */
+.profile-icon {
+    cursor: pointer;
+    padding-right: 10px; /* Adds space to prevent it from touching the edge */
+}
+
+/* Profile Details Popup */
+.profile-details {
+    position: absolute;
+    top: 60px;
+    right: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Maintenance Service Boxes */
+.service-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+/* Service Box Styling */
+.service-box {
+    width: 300px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+/* Background Images for Each Box */
+.carpentry { background: url('/carpentry.webp') center/cover no-repeat; }
+.electrical { background: url('/electrical-wiring.jpg') center/cover no-repeat; }
+.plumbing { background: url('/plumbing.avif') center/cover no-repeat; }
+.drinking-water { background: url('/water.webp') center/cover no-repeat; }
+.housekeeping { background: url('/house.jpeg') center/cover no-repeat; }
+.network { background: url('/networking.jpg') center/cover no-repeat; }
+.infrastructure { background: url('/infra.jpeg') center/cover no-repeat; }
+.food-dining { background: url('/food.jpg') center/cover no-repeat; }
+.waste-management { background: url('/waste.jpg') center/cover no-repeat; }
+.laundry { background: url('/laundry.jpeg') center/cover no-repeat; }
+
+
+.service-box:hover {
+    transform: scale(1.05);
+}
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+    background: #f4f4f4;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    max-width: 900px;
+    gap: 40px;
+}
+
+.about-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text h2 {
+    margin-bottom: 10px;
+    color: #6a0dad;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+.service-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr); /* 4 boxes per row */
+    gap: 30px;
+    margin-top: 800px; /* Increased margin to push it below the navbar */
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Ensure the navbar does not overlap */
+.navbar {
+    position: fixed;  /* Keeps the navbar fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #6a0dad;
+    color: white;
+    z-index: 1000; /* Ensures navbar stays on top */
+}
+.home-container {
+    padding-top: 80px; /* Adjust the value to increase or decrease the gap */
+}
+
+/* Adjust grid layout for different screen sizes */
+@media (max-width: 1024px) {
+    .service-boxes {
+        grid-template-columns: repeat(3, 1fr); /* 3 per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .service-boxes {
+        grid-template-columns: repeat(2, 1fr); /* 2 per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .service-boxes {
+        grid-template-columns: repeat(1, 1fr); /* 1 per row on small screens */
+    }
+}
+
+.carpentry-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url('/carpentrybg.avif') no-repeat center center/cover;
+    padding: 20px;
+    position: relative;
+    opacity: 0.9; 
+  }
+  
+  .carpentry-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adjust opacity here */
+    z-index: -1;
+  }
+  
+  .carpentry-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .carpentry-form {
+    width: 50%;
+    max-width: 500px;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .carpentry-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .carpentry-file-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #f8f9fa;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .carpentry-button {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+  }
+  
+  .carpentry-button:hover {
+    background: #0056b3;
+  }
