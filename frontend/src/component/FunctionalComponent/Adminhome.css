@@ -1,101 +1,20 @@
-/* Full-screen layout */
-.login-page {
-    display: flex;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    align-items: center;
-    justify-content: center;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Animated Purple Background */
-.left-side {
-    width: 0%;
-    height: 100vh;
-    background: linear-gradient(to right, #b783e8, #d8b4fe);
-    animation: expand-purple 2s forwards ease-in-out;
-}
-
-@keyframes expand-purple {
-    0% { width: 0%; }
-    100% { width: 50%; }
-}
-
-/* Right Side - Login Form */
-.right-side {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-}
-
-/* Transparent Login Box */
-.login-box {
-    width: 300px;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-}
-
-/* Center only the "HostelCare" heading */
-.login-box h2 {
-    font-size: 28px;
-    color: #333;
-    text-align: center;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* Input Field Styling */
-.input-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.input-container input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-}
-
-/* Centering the button */
-button {
-    width: 80%;
-    padding: 12px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 18px;
-    display: block;
-    text-align: center;
-    margin: 0 auto;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
+/* Admin Home Container */
 .home-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     background: #f8f9fa;
-    padding-top: 80px;
+    overflow-y: auto;
+    padding-top: 100px; /* To accommodate fixed navbar */
+    align-items: center;
+    justify-content: flex-start;
 }
 
 /* Navbar */
@@ -114,10 +33,17 @@ button:hover {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
     margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
+
+.logo img {
+    height: 60px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Prevent it from being too large */
+}
+
 
 .nav-right {
     display: flex;
@@ -151,94 +77,137 @@ button:hover {
     top: 60px;
     right: 30px;
     background: white;
-    padding: 15px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
+    line-height: 2.0;
+    z-index: 1050;
 }
 
 /* Maintenance Service Boxes */
 .service-boxes {
     display: grid;
-    grid-template-columns: repeat(3, 2fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 800px;
+    margin-top: 20px;
     justify-content: center;
     padding: 20px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .service-box {
-    width: 300px;
+    width: 100%;
     height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #6a0dad;
     font-size: 18px;
     font-weight: bold;
     color: white;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .service-box:hover {
     transform: scale(1.05);
 }
 
-/* About Section */
-.about-section {
+/* Footer (Optional, if you plan to add it) */
+.footer {
+    background-color: #6a0dad;
+    color: white;
+    text-align: left;
+    padding: 15px 30px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Individual Service Box Backgrounds */
+.carpentry {
+    background-image: url('/carpentry.webp');
+}
+.electrical {
+    background-image: url('/electrical-wiring.jpg');
+}
+.plumbing {
+    background-image: url('/plumbing.avif');
+}
+.drinking-water {
+    background-image: url('/water.webp');
+}
+.housekeeping {
+    background-image: url('/house.jpeg');
+}
+.network {
+    background-image: url('/networking.jpg');
+}
+.infrastructure {
+    background-image: url('/infra.jpeg');
+}
+.food-dining {
+    background-image: url('/food.jpg');
+}
+.waste-management {
+    background-image: url('/waste.jpg');
+}
+.laundry {
+    background-image: url('/laundry.jpeg');
+}
+/* Service Box Image Backgrounds */
+/* General Styling for Service Boxes */
+.service-box {
+    position: relative;
+    width: 100%;
+    height: 250px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    padding: 60px;
-    background: #f4f4f4;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevents overlay from overflowing */
 }
 
-.about-content {
-    display: flex;
-    align-items: center;
-    max-width: 900px;
-    gap: 40px;
+/* Add background images */
+.carpentry, .electrical, .plumbing, .drinking-water, 
+.housekeeping, .network, .infrastructure, .food-dining, 
+.waste-management, .laundry {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
-.about-image {
-    width: 300px;
-    height: auto;
+/* Overlay for better text visibility */
+.carpentry::before, .electrical::before, .plumbing::before, 
+.drinking-water::before, .housekeeping::before, .network::before, 
+.infrastructure::before, .food-dining::before, .waste-management::before, 
+.laundry::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Dark transparent layer */
+    z-index: 0; /* Places the overlay below the text */
     border-radius: 10px;
 }
 
-.about-text {
-    flex: 1;
-    text-align: left;
-}
-
-.about-text h2 {
-    margin-bottom: 10px;
-    color: #6a0dad;
-}
-
-.about-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-}
-
-@media (max-width: 1024px) {
-    .service-boxes {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .service-boxes {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 480px) {
-    .service-boxes {
-        grid-template-columns: repeat(1, 1fr);
-    }
+/* Ensure text is above the overlay */
+.service-box span {
+    position: relative;
+    z-index: 1;
 }

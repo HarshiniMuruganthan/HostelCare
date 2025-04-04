@@ -1,63 +1,97 @@
 /* Landing Page Full-Screen Layout */
 .landing-container {
     display: flex;
-    height: 100vh;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to right, #b783e8, #d8b4fe);
+    position: fixed; /* Ensures no scrolling */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/campuslife.jpg') no-repeat center center/cover;
+    overflow: hidden; /* Prevents scrolling */
 }
 
-/* Login Box */
+/* Dark overlay for better text contrast */
+.landing-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Adjust opacity */
+    z-index: 0;
+}
+
+/* Centered Box */
 .landing-box {
+    position: relative;
+    z-index: 1;
     width: 350px;
-    padding: 40px;
-    background: rgba(255, 255, 255, 0.2);
+    padding:30px;
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 12px;
-    backdrop-filter: blur(15px);
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
+}
+
+/* Logo with No Extra Space */
+.landing-logo {
+    max-width: 150px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin: -5px auto 0 auto; /* Removes extra spacing */
 }
 
 /* Heading */
 .landing-box h2 {
     font-size: 28px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+    color: #ffffff;
+    margin: 0;
 }
 
 /* Buttons */
 .landing-button {
     width: 100%;
     padding: 12px;
-    background: #6a0dad;
-    color: white;
+    background: #ffffff;
+    color: #6a0dad;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .landing-button:hover {
-    background: #f6f6f7;
-    color:#6a0dad
+    background: #6a0dad;
+    color: white;
 }
 
-/* Responsive Design */
+/* Responsive Adjustments */
 @media (max-width: 768px) {
     .landing-box {
         width: 80%;
+    }
+    .landing-logo {
+        max-width: 130px;
     }
 }
 
 @media (max-width: 480px) {
     .landing-box {
         width: 90%;
-        padding: 30px;
+        padding: 20px;
+    }
+    .landing-logo {
+        max-width: 110px;
     }
 }

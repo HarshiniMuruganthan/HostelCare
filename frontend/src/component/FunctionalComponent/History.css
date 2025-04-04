@@ -1,0 +1,98 @@
+/* General Styles */
+.history-container {
+    padding: 10px;
+    width: 90%;
+    margin: 2px auto;
+}
+
+/* Section Styling */
+.service-history {
+    margin-bottom: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #6a0dad;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #6a0dad;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Status Badge Styling (Specific to History Page) */
+.history-status-completed {
+    color: green;
+    font-weight: bold;
+}
+
+.history-status-pending {
+    color: red;
+    font-weight: bold;
+}
+
+.history-status-in-progress {
+    color: orange;
+    font-weight: bold;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6a0dad;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Prevent it from being too large */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.profile-icon {
+    cursor: pointer;
+}

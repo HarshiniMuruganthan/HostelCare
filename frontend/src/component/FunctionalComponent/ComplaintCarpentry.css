@@ -1,0 +1,111 @@
+/* General container styling */
+.carpentry-container {
+    width: 85%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.complaints-title {
+    text-align: center;
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Table Styling */
+.complaints-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.complaints-table th, .complaints-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.complaints-table th {
+    background-color: #6a0dad;
+    color: white;
+    font-size: 16px;
+}
+
+/* Status Dropdown Styling */
+.status-dropdown {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #6a0dad;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    background-color: white;
+}
+
+/* Ensuring the color applies to the entire dropdown list */
+.status-dropdown option {
+    background-color: white;
+    color: black;
+    padding: 5px;
+}
+
+/* Applying background color properly to selected option */
+.status-dropdown:focus {
+    outline: none;
+}
+
+/* Status Colors for Dropdown */
+.status-dropdown.status-completed {
+    background-color: lightgreen;
+}
+
+.status-dropdown.status-pending {
+    background-color: lightcoral;
+}
+
+.status-dropdown.status-in-progress {
+    background-color: rgb(245, 245, 125);
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6a0dad;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 300px; /* Prevent it from being too large */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.profile-icon {
+    cursor: pointer;
+}

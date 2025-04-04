@@ -6,6 +6,9 @@ import Home from './component/FunctionalComponent/Home';
 import Carpentry from './component/FunctionalComponent/Carpentry';
 import Adminlogin from './component/FunctionalComponent/Adminlogin';
 import Adminhome from './component/FunctionalComponent/Adminhome';
+import About from './component/FunctionalComponent/About';
+import History from './component/FunctionalComponent/History';
+import ComplaintCarpentry from "./component/FunctionalComponent/ComplaintCarpentry";
 
 function App() {
   return (
@@ -17,6 +20,9 @@ function App() {
         <Route path="/ahome" element={<Adminhome />} />
         <Route path="/carpentry" element={<Carpentry />} />
         <Route path="/alogin" element={<Adminlogin/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/history"element={<History/>}/>
+        <Route path="/complaintcarpentry"element={<ComplaintCarpentry/>}/>
       </Routes>
     </Router>
   );

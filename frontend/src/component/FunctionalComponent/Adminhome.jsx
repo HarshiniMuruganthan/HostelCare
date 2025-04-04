@@ -1,30 +1,30 @@
 import { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import './Adminhome.css';
 
-export default function Home() {
+export default function AdminHome() {
   const [showProfileDetails, setShowProfileDetails] = useState(false);
+  const navigate = useNavigate();
 
   const handleProfileClick = () => {
     setShowProfileDetails(!showProfileDetails);
   };
 
-  const handleAboutClick = () => {
-    document.getElementById("about-section").scrollIntoView({ behavior: "smooth" });
-  };
-  const navigate = useNavigate();
-
   return (
     <div className="home-container">
       {/* Navbar */}
       <nav className="navbar">
-        <div className="logo">HostelCare</div>
+      <div className="logo">
+    <img src="/ourlogo.png" alt="HostelCare Logo" className="logo-image" />
+  </div>
         <div className="nav-right">
           <div className="nav-links">
-            <a href="#" onClick={() => window.location.reload()}>Home</a>
-            <a href="#" onClick={handleAboutClick}>About</a>
-            <a href="#">History</a>
+            <Link to="/ahome">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/history">History</Link>
           </div>
           <div className="profile-icon" onClick={handleProfileClick}>
             <FaUserCircle size={40} />
@@ -36,42 +36,24 @@ export default function Home() {
       {showProfileDetails && (
         <div className="profile-details">
           <h3>Login Details</h3>
-          <p>Room No: 101</p>
-          <p>Name: John Doe</p>
+          <p>Email: w@gmail.com</p>
+          <p>Name: chithra</p>
+          <p>Block: A</p>
         </div>
       )}
 
-      {/* Maintenance Boxes */}
+      {/* Maintenance Service Boxes */}
       <div className="service-boxes">
-        <div className="service-box carpentry" onClick={() => navigate("/carpentry")}>Carpentry</div>
-        <div className="service-box electrical">Electrical</div>
-        <div className="service-box plumbing">Plumbing</div>
-        <div className="service-box drinking-water">Drinking Water</div>
-        <div className="service-box housekeeping">Housekeeping</div>
-        <div className="service-box network">Network</div>
-        <div className="service-box infrastructure">Infrastructure</div>
-        <div className="service-box food-dining">Food & Dining Hall</div>
-        <div className="service-box waste-management">Waste Management</div>
-        <div className="service-box laundry">Laundry</div>
-
-      </div>
-
-      
-      <div id="about-section" className="about-section">
-        <div className="about-content">
-          <img src='/hostel.jpg' alt="About Us" className="about-image" />
-          <div className="about-text">
-            <h2>About Us</h2>
-            <p>
-              HostelCare is dedicated to ensuring the best maintenance services for hostels. 
-              Our platform provides easy access to maintenance requests and quick solutions. 
-              We aim to create a hassle-free experience for students and hostel staff. 
-              With dedicated services in carpentry, electrical work, plumbing, housekeeping, 
-              and network support, we ensure smooth hostel management. 
-              Our team is committed to delivering reliable and efficient services.
-            </p>
-          </div>
-        </div>
+        <div className="service-box carpentry" onClick={() => navigate("/complaintcarpentry")}><span>Carpentry</span></div>
+        <div className="service-box electrical"><span>Electrical</span></div>
+        <div className="service-box plumbing"><span>Plumbing</span></div>
+        <div className="service-box drinking-water"><span>Drinking Water</span></div>
+        <div className="service-box housekeeping"><span>Housekeeping</span></div>
+        <div className="service-box network"><span>Network</span></div>
+        <div className="service-box infrastructure"><span>Infrastructure</span></div>
+        <div className="service-box food-dining"><span>Food & Dining Hall</span></div>
+        <div className="service-box waste-management"><span>Waste Management</span></div>
+        <div className="service-box laundry"><span>Laundry</span></div>
       </div>
     </div>
   );

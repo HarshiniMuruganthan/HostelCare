@@ -21,9 +21,9 @@ export default function Home() {
         <div className="logo">HostelCare</div>
         <div className="nav-right">
           <div className="nav-links">
-            <a href="#" onClick={() => window.location.reload()}>Home</a>
-            <a href="#" onClick={handleAboutClick}>About</a>
-            <a href="#">History</a>
+            <Link to="/home">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="#">History</Link>
           </div>
           <div className="profile-icon" onClick={handleProfileClick}>
             <FaUserCircle size={40} />
@@ -53,24 +53,6 @@ export default function Home() {
         <div className="service-box waste-management">Waste Management</div>
         <div className="service-box laundry">Laundry</div>
 
-      </div>
-
-      
-      <div id="about-section" className="about-section">
-        <div className="about-content">
-          <img src='/hostel.jpg' alt="About Us" className="about-image" />
-          <div className="about-text">
-            <h2>About Us</h2>
-            <p>
-              HostelCare is dedicated to ensuring the best maintenance services for hostels. 
-              Our platform provides easy access to maintenance requests and quick solutions. 
-              We aim to create a hassle-free experience for students and hostel staff. 
-              With dedicated services in carpentry, electrical work, plumbing, housekeeping, 
-              and network support, we ensure smooth hostel management. 
-              Our team is committed to delivering reliable and efficient services.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
