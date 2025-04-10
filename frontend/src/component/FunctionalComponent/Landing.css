@@ -1,97 +1,100 @@
-/* Landing Page Full-Screen Layout */
+/* Fullscreen Background */
 .landing-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed; /* Ensures no scrolling */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: url('/campuslife.jpg') no-repeat center center/cover;
-    overflow: hidden; /* Prevents scrolling */
-}
-
-/* Dark overlay for better text contrast */
-.landing-container::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Adjust opacity */
-    z-index: 0;
-}
-
-/* Centered Box */
-.landing-box {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('/campuslife.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  /* Content Wrapper */
+  .landing-content {
     position: relative;
     z-index: 1;
-    width: 350px;
-    padding:30px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    padding: 40px 30px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Logo with No Extra Space */
-.landing-logo {
-    max-width: 150px;
-    height: auto;
-    display: block;
-    object-fit: contain;
-    margin: -5px auto 0 auto; /* Removes extra spacing */
-}
-
-/* Heading */
-.landing-box h2 {
-    font-size: 28px;
-    color: #ffffff;
-    margin: 0;
-}
-
-/* Buttons */
-.landing-button {
-    width: 100%;
-    padding: 12px;
-    background: #ffffff;
-    color: #6a0dad;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.landing-button:hover {
-    background: #6a0dad;
     color: white;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .landing-box {
-        width: 80%;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Title */
+  .landing-content h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  /* Logo */
+  .landing-logo {
+    width: 200px;
+    margin: 20px 0;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+  }
+  
+  /* Buttons */
+  .landing-button {
+    margin: 10px 0;
+    padding: 14px 32px;
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-shadow: 0 0 10px #8e2de2aa;
+  }
+  
+  .landing-button:hover {
+    background: #fff;
+    color: #6a0dad;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ffffffcc;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .landing-content {
+      padding: 30px 20px;
+    }
+  
+    .landing-content h2 {
+      font-size: 24px;
+    }
+  
     .landing-logo {
-        max-width: 130px;
+      width: 150px;
     }
-}
-
-@media (max-width: 480px) {
-    .landing-box {
-        width: 90%;
-        padding: 20px;
+  
+    .landing-button {
+      font-size: 14px;
+      padding: 12px 24px;
     }
-    .landing-logo {
-        max-width: 110px;
-    }
-}
+  }
+  

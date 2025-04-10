@@ -10,6 +10,7 @@ import About from './component/FunctionalComponent/About';
 import History from './component/FunctionalComponent/History';
 import ComplaintCarpentry from "./component/FunctionalComponent/ComplaintCarpentry";
 import Userabout from "./component/FunctionalComponent/Userabout";
+import UserHistory from "./component/FunctionalComponent/UserHistory";
 
 function App() {
   return (
@@ -25,6 +26,10 @@ function App() {
         <Route path="/history"element={<History/>}/>
         <Route path="/complaintcarpentry"element={<ComplaintCarpentry/>}/>
         <Route path="/userabout"element={<Userabout/>}/>
+       
+
+<Route path="/userhistory" element={<UserHistory />} />
+
       </Routes>
     </Router>
   );

@@ -22,7 +22,9 @@ export default function Userabout() {
             <div className="nav-links">
               <Link to="/home">Home</Link>
               <Link to="/userabout">About</Link>
-              <Link to="#">History</Link>
+
+              <Link to="/userhistory">History</Link>
+
             </div>
             <div className="profile-icon" onClick={handleProfileClick}>
               <FaUserCircle size={40} />

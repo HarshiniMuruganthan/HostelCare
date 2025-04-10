@@ -18,7 +18,9 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <div className="left-side"></div>
+      <div className="left-side">
+        <img src="/ourlogo.png" alt="Animated" />
+      </div>
       <div className="right-side">
         <div className="login-box">
           <h2>HostelCare</h2>
@@ -52,4 +54,3 @@ export default function Login() {
     </div>
   );
 }
-

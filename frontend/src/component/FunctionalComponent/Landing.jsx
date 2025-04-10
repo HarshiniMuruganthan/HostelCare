@@ -7,8 +7,10 @@ const Landing = () => {
 
   return (
     <div className="landing-container">
-      <div className="landing-box">
-        <h2>Welcome to</h2>
+      <div className="landing-content">
+        <div className="typewriter">
+          <h2>Welcome to HostelCare</h2>
+        </div>
         <img src="/ourlogo.png" alt="Logo" className="landing-logo" />
         <button className="landing-button" onClick={() => navigate("/alogin")}>
           Login as Admin
