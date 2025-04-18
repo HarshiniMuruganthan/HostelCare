@@ -3,33 +3,47 @@ import { FaUserCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./UserHistory.css";
 
-const allComplaints = [
-  { username: "john123", roomNo: "101", block: "A", problem: "Fan not working", category: "Electrical", status: "Completed", feedback: "Fixed quickly" },
-  { username: "john123", roomNo: "101", block: "A", problem: "Clogged drain", category: "Plumbing", status: "Pending", feedback: "" },
-  { username: "alice456", roomNo: "203", block: "B", problem: "Broken chair", category: "Carpentry", status: "In Progress", feedback: "" },
-  { username: "john123", roomNo: "101", block: "A", problem: "Fan not working", category: "Electrical", status: "Completed", feedback: "Fixed quickly" },
-  { username: "john123", roomNo: "101", block: "A", problem: "Clogged drain", category: "Plumbing", status: "Pending", feedback: "" },
-  { username: "alice456", roomNo: "203", block: "B", problem: "Broken chair", category: "Carpentry", status: "In Progress", feedback: "" },
-  { username: "john123", roomNo: "101", block: "A", problem: "Fan not working", category: "Electrical", status: "Completed", feedback: "Fixed quickly" },
-  { username: "john123", roomNo: "101", block: "A", problem: "Clogged drain", category: "Plumbing", status: "Pending", feedback: "" },
-  { username: "alice456", roomNo: "203", block: "B", problem: "Broken chair", category: "Carpentry", status: "In Progress", feedback: "" },
-];
-
 const UserHistory = () => {
   const [userComplaints, setUserComplaints] = useState([]);
   const [showProfileDetails, setShowProfileDetails] = useState(false);
+  const [userInfo, setUserInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const loggedInUsername = localStorage.getItem("username") || "john123";
-    const filteredComplaints = allComplaints.filter(
-      (complaint) => complaint.username === loggedInUsername
-    );
-    setUserComplaints(filteredComplaints);
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user || !user._id) return;
+
+    setUserInfo(user);
+
+    const fetchComplaints = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/api/complaints/user/${user._id}`
+        );
+        
+        if (!res.ok) {
+          throw new Error("Failed to fetch complaints");
+        }
+
+        const data = await res.json();
+        setUserComplaints(data);
+      } catch (error) {
+        setError("Error fetching complaints: " + error.message);
+        console.error("Error fetching complaints:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComplaints();
   }, []);
 
   const handleProfileClick = () => {
     setShowProfileDetails(!showProfileDetails);
   };
+
+  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="user-history-container">
@@ -51,41 +65,44 @@ const UserHistory = () => {
         </div>
       </nav>
 
-      {showProfileDetails && (
+      {showProfileDetails && userInfo && (
         <div className="profile-details">
           <h3>Login Details</h3>
-          <p>Username: john123</p>
-          <p>Block: A</p>
-          <p>Room No: 101</p>
+          <p>Name: {userInfo.name}</p>
+          <p>Room No: {userInfo.roomNo}</p>
         </div>
       )}
 
       <div className="history-wrapper">
         <h2>Your Complaint History</h2>
-        <table className="history-table">
-          <thead>
-            <tr>
-              <th>Category</th>
-              <th>Problem</th>
-              <th>Block</th>
-              <th>Room No</th>
-              <th>Status</th>
-              <th>Feedback</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userComplaints.map((c, idx) => (
-              <tr key={idx}>
-                <td>{c.category}</td>
-                <td>{c.problem}</td>
-                <td>{c.block}</td>
-                <td>{c.roomNo}</td>
-                <td>{c.status}</td>
-                <td>{c.feedback || "No feedback yet"}</td>
+        {error ? (
+          <p>{error}</p> // Show error message
+        ) : userComplaints.length === 0 ? (
+          <p>No complaints found.</p>
+        ) : (
+          <table className="history-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Problem</th>
+                <th>Room No</th>
+                <th>Status</th>
+                <th>Feedback</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {userComplaints.map((c, idx) => (
+                <tr key={idx}>
+                  <td>{c.category}</td>
+                  <td>{c.complaintText}</td>
+                  <td>{c.roomNumber}</td>
+                  <td>{c.status}</td>
+                  <td>{c.feedback || "No feedback yet"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

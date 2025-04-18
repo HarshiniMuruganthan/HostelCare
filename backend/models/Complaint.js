@@ -1,23 +1,35 @@
 const mongoose = require('mongoose');
 
+// Complaint schema definition
 const complaintSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  roomNumber: { type: String, required: true },
-  complaint: { type: String, required: true },
-  image: { type: String },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
+  userId: { 
+    type: mongoose.Schema.Types.ObjectId, // Correct type for referencing User model
+    ref: 'User', // Refers to the User model
+    required: true 
   },
-  status: {
-    type: String,
-    default: 'Pending',
+  category: { 
+    type: String, 
+    required: true 
   },
-  date: {
-    type: Date,
-    default: Date.now,
+  complaintText: { 
+    type: String, 
+    required: true 
   },
-});
+  roomNumber: { 
+    type: String, 
+    required: true 
+  },
+  status: { 
+    type: String, 
+    default: 'Pending' 
+  },
+  feedback: { 
+    type: String, 
+    default: '' 
+  },
+}, { timestamps: true });  // This adds createdAt and updatedAt fields automatically
 
-module.exports = mongoose.model('Complaint', complaintSchema);
+// Create and export the Complaint model
+const Complaint = mongoose.model('Complaint', complaintSchema);
+
+module.exports = Complaint;

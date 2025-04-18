@@ -7,13 +7,32 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!username || !roomNo || !password) {
       alert("Please enter Username, Room Number, and Password");
       return;
     }
-    alert(`Logged in as ${username} with Room No: ${roomNo}`);
-    navigate("/home");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, roomNo, password }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        alert(data.error || "Login failed");
+        return;
+      }
+
+      localStorage.setItem("user", JSON.stringify(data));
+      alert(`Logged in as ${data.name} with Room No: ${data.roomNo}`);
+      navigate("/Home");
+    } catch (error) {
+      alert("Error during login.");
+      console.error("Login error:", error);
+    }
   };
 
   return (
