@@ -16,21 +16,23 @@ app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Routes
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/auth'); // If you're not using auth yet, keep this file as a placeholder
 const complaintRoutes = require('./routes/complaints');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/complaints', complaintRoutes);
 
-// Start Server + DB
+
+
+// DB Connection
 mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => {
   console.log('MongoDB connected');
-  app.listen(PORT, () => console.log(` Server running at http://localhost:${PORT}`));
+  app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
 })
 .catch((err) => {
-  console.error(' MongoDB connection error:', err.message);
+  console.error('MongoDB connection error:', err.message);
 });
