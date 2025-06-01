@@ -10,7 +10,6 @@ const AdminLogin = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     
-    // Temporary authentication logic (Replace with backend API call)
     if (email === "w@gmail.com" && password === "123") {
       alert("Login successful");
       navigate("/ahome");

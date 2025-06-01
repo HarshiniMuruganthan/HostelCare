@@ -1,30 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaUserCircle } from "react-icons/fa";
 import "./ComplaintCarpentry.css";
 
-const initialCarpentryComplaints = [
-    { name: "Dhiviya C", block: "B", roomNo: "103", problem: "Door Handle", status: "Completed" },
-    { name: "Aathira A", block: "C", roomNo: "210", problem: "Broken Chair", status: "Pending" },
-];
-
 const ComplaintCarpentry = () => {
-    const [complaints, setComplaints] = useState(initialCarpentryComplaints);
+    const [complaints, setComplaints] = useState([]);
 
-    // Function to handle status change
+  
+    useEffect(() => {
+        const fetchCarpentryComplaints = async () => {
+            try {
+                const response = await fetch("http://localhost:5000/api/complaints/admin/category/Carpentry");
+                const data = await response.json();
+                setComplaints(data);
+            } catch (error) {
+                console.error("Error fetching complaints:", error);
+            }
+        };
+
+        fetchCarpentryComplaints();
+    }, []);
+
+   
     const handleStatusChange = (index, newStatus) => {
         const updatedComplaints = [...complaints];
         updatedComplaints[index].status = newStatus;
         setComplaints(updatedComplaints);
+    
     };
 
     return (
         <div className="carpentry-container">
-            {/* Navbar */}
+        
             <nav className="navbar">
-            <div className="logo">
-    <img src="/ourlogo.png" alt="HostelCare Logo" className="logo-image" />
-  </div>
+                <div className="logo">
+                    <img src="/ourlogo.png" alt="HostelCare Logo" className="logo-image" />
+                </div>
                 <div className="nav-right">
                     <div className="nav-links">
                         <Link to="/ahome">Home</Link>
@@ -37,7 +48,7 @@ const ComplaintCarpentry = () => {
                 </div>
             </nav>
 
-            {/* Carpentry Complaints Table */}
+           
             <div className="complaints-container">
                 <h2 className="complaints-title">Carpentry Complaints</h2>
                 <table className="complaints-table">
@@ -53,10 +64,10 @@ const ComplaintCarpentry = () => {
                     <tbody>
                         {complaints.map((record, idx) => (
                             <tr key={idx}>
-                                <td>{record.name}</td>
-                                <td>{record.block}</td>
-                                <td>{record.roomNo}</td>
-                                <td>{record.problem}</td>
+                                <td>{record.studentName}</td>
+                                <td>{record.roomNumber?.charAt(0)}</td>
+                                <td>{record.roomNumber}</td>
+                                <td>{record.complaintText}</td>
                                 <td>
                                     <select
                                         className={`status-dropdown status-${record.status.toLowerCase().replace(" ", "-")}`}

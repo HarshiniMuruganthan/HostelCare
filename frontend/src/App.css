@@ -1,14 +1,13 @@
-/* Full-screen layout */
+
 .login-page {
     display: flex;
     height: 100vh;
     overflow: hidden;
     position: relative;
-    align-items: center;  /* Center the login box vertically */
-    justify-content: center; /* Center the login box horizontally */
+    align-items: center;  
+    justify-content: center; 
 }
 
-/* Animated Purple Background */
 .left-side {
     width: 0%;
     height: 100vh;
@@ -31,7 +30,7 @@
 }
 
 
-/* Right Side - Login Form */
+
 .right-side {
     flex: 1;
     display: flex;
@@ -40,10 +39,10 @@
     background: white;
 }
 
-/* Transparent Login Box */
+
 .login-box {
-    width: 300px; /* Increased width for a bigger box */
-    padding: 40px; /* More padding for better spacing */
+    width: 300px; 
+    padding: 40px; 
     background: rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     backdrop-filter: blur(15px);
@@ -51,20 +50,18 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Increased gap between elements */
-    align-items: center; /* Centers content including button */
+    gap: 20px; 
+    align-items: center; 
 }
 
-/* Center only the "HostelCare" heading */
 .login-box h2 {
-    font-size: 28px; /* Slightly larger text */
+    font-size: 28px;
     color: #333;
-    text-align: center; /* Centers the text */
+    text-align: center; 
     width: 100%;
     margin: 0 auto;
 }
 
-/* Input Field Styling */
 .input-container {
     display: flex;
     flex-direction: column;
@@ -73,30 +70,29 @@
 
 .input-container input {
     width: 100%;
-    padding: 12px; /* Bigger input fields */
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
 }
 
-/* Centering the button */
 button {
-    width: 80%; /* Reduced width for centering effect */
-    padding: 12px; /* Bigger button */
+    width: 80%; 
+    padding: 12px; 
     background: #007bff;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 18px; /* Bigger text on button */
+    font-size: 18px; 
     display: block;
     text-align: center;
-    margin: 0 auto; /* Centers the button */
+    margin: 0 auto; 
 }
 
 button:hover {
     background: #0056b3;
-}/*home page*/
+}
 .home-page {
     display: flex;
     flex-direction: column;
@@ -109,7 +105,7 @@ button:hover {
     box-sizing: border-box;
   }
   
-  /* Main container holding everything on the page */
+
   .home-container {
     display: flex;
     flex-direction: column;
@@ -120,7 +116,7 @@ button:hover {
     box-sizing: border-box;
   }
   
-  /* Optional: Add responsiveness */
+  
   @media (max-width: 768px) {
     .home-page {
       font-size: 22px;
@@ -133,7 +129,7 @@ button:hover {
   }
   
 
-/* Navbar */
+
 .navbar {
     position: absolute;
     top: 0;
@@ -141,36 +137,36 @@ button:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px; /* Increased padding for better spacing */
+    padding: 15px 40px; 
     background: #c89ae7;
     color: white;
 }
 
-/* Logo */
+
 .logo {
     font-size: 24px;
     font-weight: bold;
     margin-left: 20px;
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between image and text */
+    gap: 10px; 
   }
   
   .logo img {
-    height: 32px; /* Adjust size as needed */
+    height: 32px; 
     width: auto;
   }
   
 
-/* Right Section of Navbar */
+
 .nav-right {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-right: 20px; /* Adds space from the right side */
+    margin-right: 20px; 
 }
 
-/* Navigation Links */
+
 .nav-links {
     display: flex;
     gap: 15px;
@@ -186,13 +182,13 @@ button:hover {
     text-decoration: underline;
 }
 
-/* Profile Icon */
+
 .profile-icon {
     cursor: pointer;
-    padding-right: 10px; /* Adds space to prevent it from touching the edge */
+    padding-right: 10px; 
 }
 
-/* Profile Details Popup */
+
 .profile-details {
     position: absolute;
     top: 60px;
@@ -204,7 +200,7 @@ button:hover {
     text-align: left;
 }
 
-/* Maintenance Service Boxes */
+
 .service-boxes {
     display: flex;
     flex-wrap: wrap;
@@ -213,7 +209,7 @@ button:hover {
     justify-content: center;
 }
 
-/* Service Box Styling */
+
 .service-box {
     width: 300px;
     height: 250px;
@@ -230,7 +226,7 @@ button:hover {
     transition: 0.3s ease-in-out;
 }
 
-/* Background Images for Each Box */
+
 .carpentry { background: url('/carpentry.webp') center/cover no-repeat; }
 .electrical { background: url('/electrical-wiring.jpg') center/cover no-repeat; }
 .plumbing { background: url('/plumbing.avif') center/cover no-repeat; }
@@ -284,16 +280,16 @@ button:hover {
 }
 .service-boxes {
     display: grid;
-    grid-template-columns: repeat(3, 2fr); /* 4 boxes per row */
+    grid-template-columns: repeat(3, 2fr); 
     gap: 30px;
-    margin-top: 800px; /* Increased margin to push it below the navbar */
+    margin-top: 800px; 
     justify-content: center;
     padding: 20px;
 }
 
-/* Ensure the navbar does not overlap */
+
 .navbar {
-    position: fixed;  /* Keeps the navbar fixed at the top */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
@@ -303,16 +299,15 @@ button:hover {
     padding: 15px 30px;
     background: #6a0dad;
     color: white;
-    z-index: 1000; /* Ensures navbar stays on top */
+    z-index: 1000; 
 }
 .home-container {
-    padding-top: 80px; /* Adjust the value to increase or decrease the gap */
+    padding-top: 80px; 
 }
 
-/* Adjust grid layout for different screen sizes */
 @media (max-width: 1024px) {
     .service-boxes {
-        grid-template-columns: repeat(3, 1fr); /* 3 per row on medium screens */
+        grid-template-columns: repeat(3, 1fr); 
     }
 }
 

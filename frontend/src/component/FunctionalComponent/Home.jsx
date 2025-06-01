@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      {/* Navbar */}
+    
       <nav className="navbar">
         <div className="logo">HostelCare</div>
         <div className="nav-right">
@@ -33,16 +33,16 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Profile Details Popup */}
+    
       {showProfileDetails && (
         <div className="profile-details">
           <h3>Login Details</h3>
           <p>Room No: 101</p>
-          <p>Name: John Doe</p>
+          <p>Name: Harshini</p>
         </div>
       )}
 
-      {/* Maintenance Boxes */}
+      
       <div className="service-boxes">
         <div className="service-box carpentry" onClick={() => navigate("/carpentry")}><span>Carpentry</span></div>
         <div className="service-box electrical"><span>Electrical</span></div>

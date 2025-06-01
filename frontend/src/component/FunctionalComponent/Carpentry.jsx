@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function CarpentryComplaintForm() {
   const [complaint, setComplaint] = useState("");
   const [file, setFile] = useState(null);
   const [submitted, setSubmitted] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(storedUser);
+    } else {
+      alert("You must be logged in to submit a complaint.");
+    }
+  }, []);
 
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
@@ -12,18 +22,17 @@ export default function CarpentryComplaintForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user || !user._id) {
-      alert("Please log in before submitting a complaint.");
+    if (!user || !user._id || !user.name || !user.roomNo) {
+      alert("Incomplete user info. Please login again.");
       return;
     }
 
     const formData = new FormData();
-    formData.append("userId", user._id); // Updated to use userId
-    formData.append("studentName", user.name || user.username); // fallback to username
-    formData.append("roomNumber", user.roomNo); // room number
+    formData.append("userId", user._id);  
+    formData.append("studentName", user.name);
+    formData.append("roomNumber", user.roomNo);
     formData.append("complaintText", complaint);
-    formData.append("category", "Carpentry");
+    formData.append("category", "Carpentry"); 
     if (file) formData.append("image", file);
 
     try {

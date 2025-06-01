@@ -11,7 +11,6 @@ const Landing = () => {
         <div className="typewriter">
           <h2>Welcome to HostelCare</h2>
         </div>
-        <img src="/ourlogo.png" alt="Logo" className="landing-logo" />
         <button className="landing-button" onClick={() => navigate("/alogin")}>
           Login as Admin
         </button>

@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 const Complaint = require('../models/Complaint');
 
-// Set up Multer for image uploads
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'uploads/');
@@ -14,13 +14,13 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Initialize Router
+
 const router = express.Router();
 
-// Create a new complaint with image upload
+
 router.post('/', upload.single('image'), async (req, res) => {
   const { username, roomNo, block, problem, category } = req.body;
-  const imageUrl = req.file ? `/uploads/${req.file.filename}` : ''; // Store image URL
+  const imageUrl = req.file ? `/uploads/${req.file.filename}` : ''; 
 
   try {
     const newComplaint = new Complaint({

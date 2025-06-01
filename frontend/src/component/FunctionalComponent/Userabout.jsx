@@ -13,7 +13,7 @@ export default function Userabout() {
   
     return (
       <div className="home-container">
-        {/* Navbar */}
+     
         <nav className="navbar">
         <div className="logo">
     <img src="/ourlogo.png" alt="HostelCare Logo" className="logo-image" />
@@ -32,21 +32,21 @@ export default function Userabout() {
           </div>
         </nav>
   
-        {/* Profile Details Popup */}
+       
       {showProfileDetails && (
         <div className="profile-details">
           <h3>Login Details</h3>
           <p>Room No: 101</p>
-          <p>Name: John Doe</p>
+          <p>Name: Harshini</p>
         </div>
         )}
   
   
 
-      {/* About Content */}
+ 
       <div id="about-section" className="about-section">
         <div className="about-content">
-          <img src="/hostel.jpg" alt="About Us" className="about-image" />
+          <img src="/hostelabout.jpg" alt="About Us" className="about-image" />
           <div className="about-text">
             <h2>About Us</h2>
             <p>
@@ -61,7 +61,7 @@ export default function Userabout() {
         </div>
       </div>
 
-      {/* Footer */}
+   
       <div className="footer">
         <p>Email: <a href="mailto:hostelcare@gmail.com">hostelcare@gmail.com</a></p>
         <p>Contact: <a href="tel:+911234567890">+91 1234567890</a></p>

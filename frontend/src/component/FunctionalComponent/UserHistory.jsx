@@ -19,15 +19,15 @@ const UserHistory = () => {
     const fetchComplaints = async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/api/complaints/user/${user._id}`
+          `http://localhost:5000/api/complaints/user/${user._id}/history`
         );
-        
+
         if (!res.ok) {
           throw new Error("Failed to fetch complaints");
         }
 
         const data = await res.json();
-        setUserComplaints(data);
+        setUserComplaints(data);  
       } catch (error) {
         setError("Error fetching complaints: " + error.message);
         console.error("Error fetching complaints:", error);
@@ -47,7 +47,7 @@ const UserHistory = () => {
 
   return (
     <div className="user-history-container">
-      {/* Navbar */}
+     
       <nav className="navbar">
         <div className="logo">
           <img src="/ourlogo.png" alt="logo" />
@@ -76,7 +76,7 @@ const UserHistory = () => {
       <div className="history-wrapper">
         <h2>Your Complaint History</h2>
         {error ? (
-          <p>{error}</p> // Show error message
+          <p>{error}</p> 
         ) : userComplaints.length === 0 ? (
           <p>No complaints found.</p>
         ) : (

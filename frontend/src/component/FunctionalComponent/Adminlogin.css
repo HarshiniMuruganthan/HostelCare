@@ -1,4 +1,4 @@
-/* Full-Screen Centered Layout */
+/* Full-screen layout */
 .admin-login-container {
     display: flex;
     align-items: center;
@@ -8,38 +8,70 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right, #be9cdd, #d8b4fe);
+    background: linear-gradient(to right, #b783e8, #d8b4fe); /* Gradient background */
     overflow: hidden; /* Ensures no scrolling */
 }
 
+/* Animated Background (Left Side) */
+.left-side {
+    width: 0%;
+    height: 100vh;
+    background: linear-gradient(to right, #b783e8, #d8b4fe);
+    animation: expand-purple 2s forwards ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
-/* Login Box */
+.left-side img {
+    max-width: 70%;
+    height: auto;
+}
+
+@keyframes expand-purple {
+    0% { width: 0%; }
+    100% { width: 50%; }
+}
+
+/* Right Side - Login Form */
+.right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+/* Transparent Login Box */
 .admin-login-box {
-    width: 350px;
-    padding: 40px;
+    width: 350px; /* Increased width for a bigger box */
+    padding: 40px; /* More padding for better spacing */
     background: rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     backdrop-filter: blur(15px);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Increased gap between elements */
+    align-items: center; /* Centers content including button */
 }
 
 /* Heading */
 .admin-login-box h2 {
-    font-size: 28px;
+    font-size: 28px; /* Slightly larger text */
     color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+    text-align: center; /* Centers the text */
+    width: 100%;
+    margin: 0 auto;
 }
 
-/* Input Fields */
+/* Input Field Styling */
 .input-group {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    width: 100%;
 }
 
 .input-group label {
@@ -49,45 +81,50 @@
 }
 
 .input-group input {
-    padding: 12px;
+    width: 100%;
+    padding: 12px; /* Bigger input fields */
     border-radius: 6px;
     border: none;
     outline: none;
     font-size: 16px;
     background: rgba(255, 255, 255, 0.8);
     color: #333;
-    margin-bottom:2px;
+    margin-bottom: 2px;
 }
 
-/* Login Button */
+/* Login Button Styling */
 .admin-login-button {
-    width: 100%;
-    padding: 12px;
-    background: #6a0dad; /* Matching student login theme */
+    width: 80%; /* Reduced width for centering effect */
+    padding: 12px; /* Bigger button */
+    background: #6a0dad; /* Purple background */
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    transition: 0.3s;
-    margin-top: 15px;
+    font-size: 18px; /* Larger text on button */
+    display: block;
+    text-align: center;
+    margin: 0 auto; /* Centers the button */
+    transition: 0.3s ease;
 }
 
 .admin-login-button:hover {
-    background: #5a0cb5;
+    background: #5a0cb5; /* Darker purple on hover */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .left-side {
+        width: 50%; /* For smaller screens, reduce the left side width */
+    }
     .admin-login-box {
-        width: 80%;
+        width: 80%; /* Reduce box width */
     }
 }
 
 @media (max-width: 480px) {
     .admin-login-box {
-        width: 90%;
-        padding: 30px;
+        width: 90%; /* Reduce further on mobile */
+        padding: 30px; /* Less padding on mobile */
     }
 }

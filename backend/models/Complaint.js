@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const complaintSchema = new mongoose.Schema({
   userId: { 
     type: mongoose.Schema.Types.ObjectId, // Correct type for referencing User model
-    ref: 'User', // Refers to the User model
+    ref: 'Student', // Refers to the User model
     required: true 
   },
   category: { 

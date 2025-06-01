@@ -15,7 +15,7 @@ export default function AdminHome() {
 
   return (
     <div className="home-container">
-      {/* Navbar */}
+      
       <nav className="navbar">
       <div className="logo">
     <img src="/ourlogo.png" alt="HostelCare Logo" className="logo-image" />
@@ -32,7 +32,7 @@ export default function AdminHome() {
         </div>
       </nav>
 
-      {/* Profile Details Popup */}
+   
       {showProfileDetails && (
         <div className="profile-details">
           <h3>Login Details</h3>
@@ -42,7 +42,7 @@ export default function AdminHome() {
         </div>
       )}
 
-      {/* Maintenance Service Boxes */}
+   
       <div className="service-boxes">
         <div className="service-box carpentry" onClick={() => navigate("/complaintcarpentry")}><span>Carpentry</span></div>
         <div className="service-box electrical"><span>Electrical</span></div>

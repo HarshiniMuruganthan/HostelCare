@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 const Student = require('../models/Student');
 
-// Login Route
+
 router.post('/login', async (req, res) => {
   const { username, roomNo, password } = req.body;
 
   try {
-    // Match the exact field names from MongoDB: username and roomNo
+    
     const student = await Student.findOne({ username, roomNo });
 
     if (!student) {
